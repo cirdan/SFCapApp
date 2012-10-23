@@ -1,0 +1,15 @@
+    <html>
+    <head>
+    <script src="jquery.js"></script>
+    <script src="raphael-min.js"></script>
+    <script src="/js/g.raphael-min.js"></script>
+    <script src="/js/g.dot-min.js"></script>
+    </head>
+    <body><div id="paper"></div>
+<script>
+            r = Raphael("paper",620,260);
+            r.dotchart(0, 0, 620, 260, [76, 70, 67, 71, 69], [0, 1, 2, 3, 4], [100, 120, 140, 160, 500], {max: 10, axisxlabels: ['Mexico', 'Argentina', 'Cuba', 'Canada', 'United States of America'], heat: true, axis: '0 0 1 1'});
+            //r.g.axis(85,230,310,null,null,4,2,["Today", "Yesterday", "Tomorrow", "Future"], "|", 0, r);
+</script>
+    </body>
+    </html>

@@ -1,0 +1,9 @@
+[submodule "src/SF/UserBundle"]
+	path = src/SF/UserBundle
+	url = https://github.com/cirdan/UserBundle.git
+[submodule "src/SF/UtilitiesBundle"]
+	path = src/SF/UtilitiesBundle
+	url = https://github.com/cirdan/UtilitiesBundle.git
+[submodule "src/SF/CapBundle"]
+	path = src/SF/CapBundle
+	url = https://github.com/cirdan/CapBundle.git

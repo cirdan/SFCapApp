@@ -1,0 +1,95 @@
+    <html>
+    <head>
+    <script src="jquery.js"></script>
+    <script src="raphael-min.js"></script>
+    <script src="/js/g.raphael-min.js"></script>
+    </head>
+    <body><div id="paper"></div>
+           <button id="plusOne" style="position:fixed;left:830px;">terrain suivant</button>
+
+   <script>
+   // Creates canvas 320 × 200 at 10, 50
+var paper = Raphael(0, 0, 800, 500);
+
+
+
+var fond = paper.path("M0 0L0 500L 800 500L800 0L0 0");
+fond.attr("fill", "url('http://www.espacil.com/var/storage/images/mediatheque/espacil/construire/amanlis-vue-de-dessus/193706-1-fre-FR/Amanlis-vue-de-dessus.jpg')");
+var clickr = paper.path("M0 0L0 500L 800 500L800 0L0 0");
+clickr.toFront();
+clickr.attr("fill", "#fff");
+clickr.attr("fill-opacity", "0");
+
+var paths=Array;
+var pathNber=1;
+var cinitialise=Array;
+var currentPath;
+var currentNumber=pathNber;
+
+clickr.mousedown(function(e){
+    if($.browser.msie){
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    }else{
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    }
+    if(!cinitialise[currentNumber]){
+        cinitialise[currentNumber]=true;
+        //paths[pathNber] = paper.path("M" + mouseX + " " + mouseY);
+        //$("#list tbody").append("<tr id='trTerrain" + pathNber + "' terrNum='" + pathNber + "'><td>" + pathNber + "</td></tr>");
+        //paths[pathNber].attr("fill", "#f00");
+        //paths[pathNber].attr("fill-opacity", .8);
+        currentPath = paper.path("M" + mouseX + " " + mouseY);
+        currentPath.attr("fill", "#f00");
+        currentPath.attr("fill-opacity", .8);
+    }else{
+        currentPath.attr("path",currentPath.attr("path") + "L" + mouseX + " " + mouseY);
+        //paths[pathNber].attr("path",paths[pathNber].attr("path") + "L" + mouseX + " " + mouseY);
+    }
+    clickr.toFront();
+});
+$("#plusOne").click(function(){
+        $("#trTerrain" + currentNumber).remove();
+        $("#list tbody").append("<tr id='trTerrain" + currentNumber + "' terrNum='" + currentNumber + "'><td>" + ($("#list tbody tr").length+1) + "</td><td>select</td><td class='supp'>supp</td></tr>");
+        paths[currentNumber]=currentPath;
+        paths[currentNumber].attr("fill-opacity", .3);
+        paths[currentNumber].attr("fill", "#abc");
+        currentNumber=$("#list tbody tr").length+1;
+        cinitialise[currentNumber]=false;
+    }
+);
+$("#list tbody tr").live("click", function(event){
+    if(paths[currentNumber]){
+        paths[currentNumber].attr("fill-opacity", .3);
+        paths[currentNumber].attr("fill", "#abc");
+    }
+    currentNumber=$(this).attr("terrNum");
+    currentPath=paths[currentNumber];
+    currentPath.attr("fill", "#f00");
+    currentPath.attr("fill-opacity", .8);
+
+});
+$("#list tbody tr td.supp").live("click", function(){
+    var toRemove=$(this).parent().attr("terrNum");
+    paths[toRemove].remove();
+    $(this).parent().remove();
+});
+   </script>
+<table id="list" style="position:fixed;left:830px;top:100px">
+<thead>
+    <th>
+    Terrain
+    </th>
+    <th>
+    Select
+    </th>
+    <th>
+    supp.
+    </th>
+</thead>
+<tbody>
+</tbody>
+</table>
+    </body>
+    </html>
