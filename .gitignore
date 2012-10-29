@@ -1,6 +1,8 @@
+/backups/*
 /web/bundles/
 /app/bootstrap*
 /app/cache/*
 /app/logs/*
+/app/config/deploy.rb
 /vendor/
 /app/config/parameters.yml

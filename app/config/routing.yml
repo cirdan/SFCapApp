@@ -1,6 +1,9 @@
 sf_utilities:
     resource: "@SFUtilitiesBundle/Resources/config/routing.yml"
     prefix:   /
+sf_cap_user:
+    resource: "@SFCapUserBundle/Resources/config/routing.yml"
+    prefix:   /
 sf_cap:
     resource: "@SFCapBundle/Resources/config/routing.yml"
     prefix:   /
