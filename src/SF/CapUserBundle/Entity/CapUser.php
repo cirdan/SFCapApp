@@ -33,19 +33,25 @@ class CapUser extends BaseUser
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
-     * @Assert\NotBlank(message="Please enter your lastname.", groups={"Registration", "Profile"})
-     * @Assert\MinLength(limit="3", message="The lastname is too short.", groups={"Registration", "Profile"})
      * @Assert\MaxLength(limit="255", message="The lastname is too long.", groups={"Registration", "Profile"})     
      */
     protected $lastname;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Assert\NotBlank(message="Please enter your firstname.", groups={"Registration", "Profile"})
+     * @Assert\MinLength(limit="3", message="The firstname is too short.", groups={"Registration", "Profile"})
      * @Assert\MaxLength(limit="255", message="The firstname is too long.", groups={"Registration", "Profile"})     
      */
     protected $firstname;
 
 
+
+    public function setEmail($email)
+    {
+             parent::setEmail($email);
+             $this->setUsername($email);
+    }
 
 
     /**
