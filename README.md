@@ -1,5 +1,5 @@
-Running los app
-===============
+Running logs app
+================
 
 Welcome.
 
