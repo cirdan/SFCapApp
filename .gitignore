@@ -1,4 +1,5 @@
 /.rsync_cache/*
+.rsync_cache
 /backups/*
 /web/bundles/
 /app/bootstrap*
