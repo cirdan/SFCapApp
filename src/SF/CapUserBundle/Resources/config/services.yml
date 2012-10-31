@@ -1,6 +1,0 @@
-services:
-    sfcapuser_user.registration.form.type:
-        class: SF\CapUserBundle\Form\Type\RegistrationFormType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: capuser_user_registration }

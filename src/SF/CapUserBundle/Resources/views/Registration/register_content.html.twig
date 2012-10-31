@@ -1,7 +1,0 @@
-<h1>Créez votre compte</h1>
-	<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-    {{ form_widget(form) }}
-    <div>
-        <input class="btn btn-primary btn-large" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
-    </div>
-</form>
