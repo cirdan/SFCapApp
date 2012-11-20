@@ -12,3 +12,5 @@ parameters:
     locale: fr
     secret: yourSecret
     database_path: null
+    facebook_app_id: youAppId
+    facebook_app_secret: youSecret

@@ -65,3 +65,11 @@ fos_user:
     registration:
         form:
             type: capuser_user_registration
+
+fos_facebook:
+    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
+    alias:  facebook
+    app_id: %facebook_app_id%
+    secret: %facebook_app_secret%
+    cookie: true
+    permissions: [email, user_birthday, user_location]
