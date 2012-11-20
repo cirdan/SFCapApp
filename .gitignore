@@ -8,3 +8,4 @@
 /app/config/deploy.rb
 /vendor/
 /app/config/parameters.yml
+/composer.lock
