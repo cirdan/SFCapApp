@@ -9,13 +9,6 @@
     <!-- Le styles -->
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
     </style>
     <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <script src="/js/jquery.js"></script>
@@ -36,7 +29,7 @@
         userAgent = userAgent.substring(0,userAgent.indexOf('.'));
         version = userAgent;
         if(version<9){
-            alert("...marche pas avec ie<9");
+            window.location="{{ path('upgrade_browser') }}";
         }
     }
       var _gaq = _gaq || [];
